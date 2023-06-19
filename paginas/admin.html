@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="formularioPelicula.css">
+    <link rel="stylesheet" href="listaPeliculas.css">
+    <script type="module" src="admin.js"></script>
+    <link rel="stylesheet" href="../variables.css">
+
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="seccionUsuario">
+            <p id="Usuario"></p>
+            <button>Cerrar Sesión</button>
+        </section>
+    </header>
+    <main>
+        <form id="formularioPelicula" action="">
+            <h1>Agregar Pelicula</h1>
+            <input name="codigo" type="text" placeholder="Ingrese codigo de pelicula" required>
+            <input name="nombre" type="text" placeholder="Ingrese nombre de pelicula" required>
+            <input name="genero" type="text" placeholder="Ingrese genero de pelicula" required>
+            <div>
+                <label>Fecha de esteno</label>
+                <input name="anio" type="date" placeholder="Ingrese año de pelicula" required>
+            </div>
+            <textarea name="sinopsis" placeholder="Ingrese sinopsis de pelicula"></textarea>
+            <div>
+                <label >Duracion</label>
+                <input name="duracion" type="time" placeholder="Ingrese duración de pelicula" required>
+             </div>
+            <input name="trailer" type="text" placeholder="Ingrese url triler de pelicula" required>
+            <input name="precio" type="text" placeholder="Ingrese precio de pelicula" required>
+            <div>
+                <label for="subirImagen" class="subirImagen">Subir Imagen</label>
+                <input name="imagen" id="subirImagen" type="file" accept="image/*" required style="display: none;">
+            </div>
+            <img id="imgenCargadaFormularioPreview" src="">
+            <input name="boton" type="submit" value="Cargar" >
+    
+        </form>
+        <section class="SeccionlistaPelicula">
+            <h1>Peliculas agregadas</h1>
+            <div id="listaPeliculas">
+    
+            </div>
+    
+        </section>
+    </main>
+
+</body>
+</html>

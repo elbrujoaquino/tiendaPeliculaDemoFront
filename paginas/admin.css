@@ -1,0 +1,50 @@
+
+h1{
+    font-family: var(--fuenteTitulo);
+    color: var(--colorbaseClaro);
+    text-align: center;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 99vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--colorBaseOscuro);
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.SeccionlistaPelicula{
+    width: 100%;
+    height: 50vh;
+}
+
+
+
+#ListaPeliculas > .pelicula{
+    background-color: aqua;
+    padding: 20px;
+}
+
+#ListaPeliculas > .pelicula img{
+    height: 200px;
+}
+
+#ListaPeliculas > .pelicula iframe{
+    height: 200px;
+}

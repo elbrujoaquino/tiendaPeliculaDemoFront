@@ -1,0 +1,13 @@
+#formularioInicioSesion{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: var(--colorbaseClaro);
+}
+
+
+#formularioInicioSesion .input{
+    font-family: var(--textoNormal);
+    margin: 10px;
+}
+

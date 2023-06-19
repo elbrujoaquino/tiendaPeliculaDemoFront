@@ -1,0 +1,126 @@
+
+
+#formularioPelicula{
+    min-width: 700px;
+    box-shadow: 0px 0px 10px .2px  rgba(0, 0, 0, 0.635);
+    border-radius: 30px;
+    text-align: center;
+    padding: 50px;
+    margin: 20px;
+    background: linear-gradient(75deg,var(--colorSecundario),var(--colorTerciario));
+    color: var(--colorbaseClaro) ;
+    font-family: var(--textoNormal);
+    transform: scale(.85) translateY(-100px);
+}
+
+#formularioPelicula > input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    background-color: var(--colorbaseClaro);
+    border:none;
+    outline: none;
+    padding: 10px;
+    color: var(--colorBaseOscuro);
+    box-shadow: 0px 0px 20px 1px var(--colorBaseOscuro) ;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    transition: all .4s;
+    
+    
+}
+
+#formularioPelicula div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    background-color: var(--colorbaseClaro);
+    border:none;
+    outline: none;
+    padding: 5px;
+    color: var(--colorBaseOscuro);
+    font-weight: 700;
+    box-shadow: 0px 0px 20px 1px var(--colorBaseOscuro) ;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    transition: all .4s;
+}
+
+#formularioPelicula div label{
+    display: inline-block;
+    font-size: .8em;
+    opacity: .8;
+
+}
+
+
+#formularioPelicula > input:hover, #formularioPelicula div:hover, #formularioPelicula > textarea:hover{
+    transform: scale(1.3);
+}
+ 
+
+#formularioPelicula input::placeholder { 
+    color: var(--colorBaseOscuro);
+    font-weight: 700;
+    font-family: var(--textoNormal);
+    opacity: .8; 
+}
+
+
+#formularioPelicula input[type="submit"]{
+   background-color: var(--colorbaseClaro);
+   color: var(--colorBaseOscuro);
+   font-weight: 700;
+   border: none;
+   padding: 10px;
+   font-family: var(--textoNormal);
+}
+
+
+#formularioPelicula input[type="submit"]:hover{
+    background-color: var(--colorBaseOscuro);
+    color: var(--colorbaseClaro);
+    border: none;
+}
+
+#formularioPelicula input[type="submit"]:active{
+    background-color: var(--colorBaseOscuro);
+    transform: scale(1);
+}
+
+
+#formularioPelicula textarea{
+    max-width: 300px;
+    max-height: 150px;
+    min-width: 300px;
+    min-height: 150px;
+    background-color: var(--colorbaseClaro);
+    color: var(--colorBaseOscuro);
+    font-weight: 700;
+    outline: none;
+    box-shadow: 0px 0px 5px .3px var(--colorBaseOscuro) ;
+    font-family: var(--textoNormal);
+    transition: all .4s;
+}
+
+#formularioPelicula textarea::placeholder {
+    color: var(--colorBaseOscuro);
+    font-weight: 700;
+    opacity: .8; 
+    line-height: 140px;
+    text-align: center;
+    font-family: var(--textoNormal);
+}
+
+#imgenCargadaFormularioPreview{
+    background-color: var(--colorbaseClaro);
+    display: inline-block;
+    height: 200px;
+    min-width: 300px;
+    box-shadow: 0px 0px 20px 1px var(--colorBaseOscuro) ;
+
+}
