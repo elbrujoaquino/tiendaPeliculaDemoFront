@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="formularioInicioSesion.css">
+    <link rel="stylesheet" href="listaPeliculas.css">
 
     <script src="index.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,11 @@
         <section id="seccionCarrito">
 
         </section>
-        <div class="contenedorFormularioInicioSesion">
+        <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <img src=".//imagenes/usuario.svg">
             <form id="formularioInicioSesion">
-                <input name="usuario" type="text" placeholder="Usuario" class="input" value="Pedro">
-                <input name="contrasenia" type="password" placeholder="Contraseña" class="input" value="Pedro1234">
+                <input name="usuario" type="text" placeholder="Usuario" class="input" value="Juan">
+                <input name="contrasenia" type="password" placeholder="Contraseña" class="input" value="Juan1234">
                 <select name="tipo" id="" class="input">
                     <option value="Administrador">Administrador</option>
                     <option value="Usuario">Usuario</option>
@@ -27,12 +28,16 @@
                 <input type="submit" value="Iniciar sesión" class="input">
             </form>
         </div>
+        <section class="contenedorSesionUsuario" id="contenedorSesionUsuario">
+            <p id="datoSesionUsuario"></p>
+            <button id="botonCerrarSesion">Cerrar Sesión</button>
+        </section>
 
     </header>
     <main>
-        <section class="SeccionlistaPelicula">
+        <section class="seccionlistaPelicula">
 
-            <div id="ListaPeliculas">
+            <div id="listaPeliculas">
 
             </div>
 

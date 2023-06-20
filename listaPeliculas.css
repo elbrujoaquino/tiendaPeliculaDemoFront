@@ -1,0 +1,122 @@
+#listaPeliculas{
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    #listaPeliculas .pelicula{
+        width: calc(426px * .7);
+        height:  calc((240px + 100px) * .7);
+       
+        position: relative;
+        margin: 20px;
+        box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+        
+    }
+
+
+
+        #listaPeliculas .pelicula .portadaPelicula{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--colorbaseClaro);
+            font-family: var(--fuenteTitulo);
+            font-size: 1em;
+            text-align: center;
+            z-index: 4;
+          
+        }
+
+        #listaPeliculas .pelicula:hover .portadaPelicula img{
+            z-index: 1;
+            opacity: 0;
+        }
+
+            #listaPeliculas .pelicula .portadaPelicula img{
+                    width: 100%;
+                    height: calc(100% - 60px);
+                    opacity: 1;
+                    transition: all .5s;
+                }
+
+                #listaPeliculas .pelicula .portadaPelicula figcaption{
+                    padding: 10px;
+                    height: 60px;
+                    background-color: var(--colorTerciario);
+                }
+
+
+        #listaPeliculas .pelicula .trailerPelicula{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 3;
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        #listaPeliculas .pelicula:hover .trailerPelicula{
+            z-index: 4;
+            opacity: 1;  
+        }
+
+        #listaPeliculas .pelicula .trailerPelicula:active{
+            z-index: 4;
+            opacity: 1;
+        }
+
+        #listaPeliculas .pelicula .informacionPelicula{
+            display: inline-block;
+            width: 100%;
+            position: absolute;
+            left: calc(100% + 0px);
+            top: -20px;
+            background-color: rgba(0, 0, 0, 0.738);
+            box-shadow: 0px 0px 10px .3px black;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            z-index: 7;
+            color: var(--colorbaseClaro);
+            font-family: var(--fuenteTitulo);
+            font-size: 1em;
+            display: none;
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        #listaPeliculas .pelicula:hover .informacionPelicula{
+            display: inline-block;
+            opacity: 1;
+        }
+            #listaPeliculas .pelicula .informacionPelicula textarea{
+                display: inline-block;
+                min-width: 100%;
+                max-width: 100%;
+                min-height: 200px;
+                max-height:200px;
+                background-color: rgba(255, 255, 255, 0);
+                border: none;
+                margin-top: 20px;
+                box-shadow: 0px 0px 10px .3px black;
+                color: var(--colorbaseClaro);
+                text-shadow: 0px 0px 10px black;
+                font-family: var(--fuenteTitulo);
+                font-size: .9em;
+                padding: 10px;
+            }
+
+                #listaPeliculas .pelicula .informacionPelicula textarea::-webkit-scrollbar{
+                    background-color: rgba(255, 255, 255, 0);
+                }
+
+                #listaPeliculas .pelicula .informacionPelicula textarea::-webkit-scrollbar-thumb{
+                    background-color: var(--colorbaseClaro);
+                    height: 20px;
+                }

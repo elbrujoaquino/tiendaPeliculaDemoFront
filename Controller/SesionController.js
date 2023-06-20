@@ -17,16 +17,29 @@ class SesionController{
     }
 
     getDatosSesion(){
-        return this.sesionDAO.getDatosSesion()();
+        return this.sesionDAO.getDatosSesion();
     }
 
     haySesionActiva(){
         return this.sesionDAO.getDatosSesion() != null;
     }
 
+    iniciarSesion(datosSesionProcesados){
+        if(this.autentificar(datosSesionProcesados)){
+            this.sesionDAO.iniciarSesion(datosSesionProcesados);
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    cerrarSesion(){
+        this.sesionDAO.cerrarSesion();
+    }
+
     autentificar(datosSesionProcesados){
         let usuarioGuardado=  this.usuarioDAO.obtenerUsuarioByUsuarioName(datosSesionProcesados.usuario);
-        console.log(usuarioGuardado);
         if(usuarioGuardado != null){
             return usuarioGuardado.getDatosSesion().es(datosSesionProcesados);
         }else{

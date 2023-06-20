@@ -1,7 +1,6 @@
 import ABMCPeliculaController from "../Controller/ABMCPeliculaController.js";
 import SesionController from "../Controller/SesionController.js";
 import Pelicula from "../Model/Pelicula.js";
-import SesionDAO from "../Model/SesionDAO.js";
 
 
 let abmcPeliculaController = new ABMCPeliculaController();
@@ -10,23 +9,44 @@ let domFormularioPelicula;
 let imagenCargadaFormulario = null;
 let domImgenCargadaFormularioPreview;
 let domListaPeliculas;
+let domDatoUSuario;
+let domBotonCerrarSesion;
 
 window.onload = () => {
-    console.log(sesionController.hayUsuarioActivo());
-    console.log(sesionController.getUsuarioActivo());
-    if(!sesionController.hayUsuarioActivo()){
+
+    if(!sesionController.haySesionActiva()){
         window.location.href="./../index.html";
 
     }else{
         domFormularioPelicula = document.querySelector("#formularioPelicula");
         domImgenCargadaFormularioPreview = document.querySelector("#imgenCargadaFormularioPreview");
         domListaPeliculas = document.querySelector("#listaPeliculas");
-    
+        domDatoUSuario = document.querySelector("#datoUsuario");
+        domBotonCerrarSesion = document.querySelector("#botonCerrarSesion");
         agregarEventoFormularioPelicula();
         agregarEventoImagenCargadaFormularioPelicula();
+        agregarEventoBotonCerrarSesion();
+        mostrarUsuario();
         mostrarPeliculas();
     }
 
+}
+
+function cerrarSesion(){
+    sesionController.cerrarSesion();
+    if(!sesionController.haySesionActiva()){
+        window.location.href="./../index.html";
+    }
+}
+
+function mostrarUsuario(){
+    domDatoUSuario.innerHTML = sesionController.getDatosSesion().usuario;
+}
+
+function agregarEventoBotonCerrarSesion(){
+    domBotonCerrarSesion.onclick = ()=>{
+        cerrarSesion();
+    }
 }
 
 
