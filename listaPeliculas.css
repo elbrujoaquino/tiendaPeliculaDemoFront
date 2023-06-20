@@ -7,12 +7,12 @@
 }
 
     #listaPeliculas .pelicula{
-        width: calc(426px * .7);
-        height:  calc((240px + 100px) * .7);
+        width: calc(426px * .8);
+        height:  calc((240px + 100px) * .8);
        
         position: relative;
         margin: 20px;
-        box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+      
         
     }
 
@@ -38,16 +38,16 @@
         }
 
             #listaPeliculas .pelicula .portadaPelicula img{
-                    width: 100%;
+                   
                     height: calc(100% - 60px);
                     opacity: 1;
                     transition: all .5s;
+                    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
                 }
 
                 #listaPeliculas .pelicula .portadaPelicula figcaption{
                     padding: 10px;
                     height: 60px;
-                    background-color: var(--colorTerciario);
                 }
 
 
