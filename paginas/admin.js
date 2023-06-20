@@ -2,7 +2,7 @@ import ABMCPeliculaController from "../Controller/ABMCPeliculaController.js";
 import SesionController from "../Controller/SesionController.js";
 import Pelicula from "../Model/Pelicula.js";
 import SesionDAO from "../Model/SesionDAO.js";
-import cargarDatosPrueba from "../Model/datosPrueba.js";
+
 
 let abmcPeliculaController = new ABMCPeliculaController();
 let sesionController = new SesionController();
@@ -12,7 +12,6 @@ let domImgenCargadaFormularioPreview;
 let domListaPeliculas;
 
 window.onload = () => {
-    cargarDatosPrueba();
     console.log(sesionController.hayUsuarioActivo());
     console.log(sesionController.getUsuarioActivo());
     if(!sesionController.hayUsuarioActivo()){

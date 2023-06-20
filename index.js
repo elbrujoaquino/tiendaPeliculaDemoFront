@@ -1,12 +1,16 @@
 import ABMCPeliculaController from "./Controller/ABMCPeliculaController.js";
+import SesionController from "./Controller/SesionController.js";
 import DatosSesion from "./Model/DatosSesion.js";
+import cargarDatosPrueba from "./Model/datosPrueba.js"
 
 let aBMCPeliculaController = new ABMCPeliculaController();
+let sesionController = new SesionController();
 let domFormularioInicioSesion;
 
 
 window.onload = ()=>{
     domFormularioInicioSesion = document.querySelector("#formularioInicioSesion");
+    cargarDatosPrueba();
     
     agregarEventoFormularioInicioSesion();
     console.log(domFormularioInicioSesion);
@@ -30,6 +34,8 @@ function mostrarPeliculas(){
 function iniciarSesion(){
     let datosSesion = obtenerDatosSesionDeFormularioInicioSesion();
     console.log(datosSesion);
+    let sesion = sesionController.autentificar(datosSesion);
+    console.log(sesion);
 }
 
 function obtenerDatosSesionDeFormularioInicioSesion(){

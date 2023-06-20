@@ -26,7 +26,13 @@ class SesionController{
 
     autentificar(datosSesionProcesados){
         let usuarioGuardado=  this.usuarioDAO.obtenerUsuarioByUsuarioName(datosSesionProcesados.usuario);
-        return usuarioGuardado.getDatosSesion().es(datosSesionProcesados);
+        console.log(usuarioGuardado);
+        if(usuarioGuardado != null){
+            return usuarioGuardado.getDatosSesion().es(datosSesionProcesados);
+        }else{
+            return false;
+        }
+       
     }
 }
 
