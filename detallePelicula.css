@@ -1,0 +1,74 @@
+main #detallePelicula{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    
+}
+
+    main #contenedorTraillerPelicula{
+        position: relative;
+        z-index: 3;
+    }
+
+        main #contenedorTraillerPelicula iframe{
+            width: calc(640px * 1);
+            height: calc(360px * 1);
+            background-color: rgb(0, 0, 0);
+            margin-bottom: 200px;
+        }
+        main #contenedorTraillerPelicula p{
+            color: aliceblue;
+            text-align: center;
+            padding: 10px;
+        }
+
+
+    main #detallePelicula #agregarCarrito{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100px;
+        height: 100px;
+        background:transparent;
+        transform: rotate(-20deg);
+        border: none;
+        color: #ffffff;
+        background-color: var(--colorTerciario);
+        border-radius: 50%;
+        transition: all .3s;
+       
+    }
+
+    main #detallePelicula #agregarCarrito:hover{
+        transform: rotate(-20deg) scale(1.2);
+    }
+
+        main #detallePelicula #agregarCarrito img{
+            width: 50px;
+            height: 50px;
+        }
+        main #detallePelicula #agregarCarrito #precio{
+            text-align: center;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+        }
+
+    main #detallePelicula .informacionPelicula{
+        box-sizing: border-box;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        padding-top: calc(360px + 80px);
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.874);
+        color: rgb(255, 255, 255);
+        text-align: justify;
+        padding-left: 100px;
+        padding-right: 100px;
+        line-height: 1.4rem;
+    }

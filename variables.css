@@ -1,9 +1,9 @@
 :root{
-    --colorbaseClaro:#dddee7;
-    --colorPrimario: #8d96bb;
-    --colorSecundario:#5f6b9c;
-    --colorTerciario: #030b2c;
-    --colorBaseOscuro:#0e0f1c;
+    --colorbaseClaro:#ffffff;
+    --colorPrimario: #0ACCBE;
+    --colorSecundario:#fcf8a5;
+    --colorTerciario: #000c21;
+    --colorBaseOscuro:#000000;
     --fuenteTitulo: 'Roboto', sans-serif;
     --textoNormal:'Exo 2', sans-serif;
 }

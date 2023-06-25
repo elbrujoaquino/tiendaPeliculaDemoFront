@@ -14,64 +14,167 @@ h1 {
 body {
     width: 99vw;
     height: 99vh;
-    padding: 20px;
-    background-color: var(--colorBaseOscuro);
-}
-
-header {
-    position: fixed;
-    height: 40px;
-    z-index: 10;
-}
-
-main {
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
+    background-color: var(--colorbaseClaro);
+    min-width: 971px;
+    min-height: 403px;
 }
 
 
-
-.seccionlistaPelicula {
-    width: 100%;
-    height: 50vh;
-}
-
-.contenedorFormularioInicioSesion {
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    top:100px;
-    left: 100px;
-}
 
 .ocultar {
     display: none;
 }
 
-.contenedorFormularioInicioSesion:hover {
-    width: max-content;
-    height: max-content;
-}
+    header {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        height: 100px;
+        background-color: var(--colorPrimario);
+        flex-direction: column;
+        flex-wrap: wrap;
+        min-width: 971px;
+       
 
-.contenedorFormularioInicioSesion form {
-    opacity: 0;
-    transition: all .5s;
-}
+    }
 
-.contenedorFormularioInicioSesion:hover form {
-    opacity: 1;
-}
+        header #seccionCarrito {
+            position: absolute;
+            float: right;
+            right: 40px;
+            top: calc(100%/2 - 60px/2);
 
-.contenedorFormularioInicioSesion>img {
-    width: 100%;
-    height: 100%;
-}
+        }
 
-.contenedorFormularioInicioSesion:hover>img {
-    display: none;
-}
+            header #seccionCarrito img {
+                height: 60px;
+            }
+
+        header .contenedorBuscar{
+            position: absolute;
+            left: calc(100%/2 - 500px/2);
+            top: calc(100%/2 - 60px/2);
+            width: 500px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+            header .contenedorBuscar img{
+                height: 50px;
+                width: 70px;
+                transform: scaleX(-1);
+            }
+
+            header .contenedorBuscar input{
+                box-sizing: content-box;
+                height: 30px;
+                padding: 10px;
+                width: calc( 100% - 70px);
+                background: transparent;
+                border: none;
+                border-bottom: 3px solid var(--colorbaseClaro);
+                outline: none;
+                color: var(--colorbaseClaro);
+                font-size: 1.3em;
+            }
+
+            header .contenedorBuscar input::placeholder{
+                color: var(--colorbaseClaro);
+            }
+
+        header .contenedorFormularioInicioSesion {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                float: left;
+                left: 25px;
+                top: calc(100%/2 - 40px/2);
+                overflow: hidden;
+                transition: height 0s;
+            }
+
+            header .contenedorFormularioInicioSesion:hover {
+                width: 440px;
+                height:470px;
+                transition: height .3s;
+            }
+            
+                header .contenedorFormularioInicioSesion img{
+                    width: 40px;
+                    height: 40px;
+                } 
+            
+                header .contenedorFormularioInicioSesion form {
+                    position: relative;
+                    width: 400px;
+                    height: 400px;
+                    border: 3px solid var(--colorTerciario);
+                    border-radius: 20px;
+                    background-color: var(--colorSecundario);
+                    top: 10px;
+                    left: 20px;
+                
+                }
+        header .contenedorSesionUsuario{
+            position: relative;
+            float: left;
+            left: 25px; 
+            height: 60px;
+            top: calc(100%/2 - 80px/2);
+        }
+
+            header .contenedorSesionUsuario #datoSesionUsuario{
+                text-align: center;
+                color: #ffffff;
+                margin: 10px;
+            }
+            header .contenedorSesionUsuario button{
+                display: block;
+                height: 30px;   
+                margin-left: auto;
+                margin-right: auto;
+                background-color: transparent;
+                transition: all .3s;
+                border: none;
+               
+            }
+
+            header .contenedorSesionUsuario button:hover{
+                transform: scale(1.2);
+            }
+
+                header .contenedorSesionUsuario button img{
+                    width: 100%;
+                    height: 100%;
+                }
+
+    main{
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        height: calc(100vh - 100px);
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+        main #detallePelicula{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+           
+            position: absolute;
+            z-index: 2;
+        }
+
+        main #listaPeliculas{
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            z-index: 10;
+            top: 50%;
+
+        }
+     

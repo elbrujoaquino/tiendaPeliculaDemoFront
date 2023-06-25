@@ -13,6 +13,7 @@ let domContenedorFormularioInicioSesion;
 let domcontenedorSesionUsuario;
 let domDatoSesionUsuario;
 let domListaPeliculas;
+let domDetallePelicula;
 
 
 
@@ -23,6 +24,7 @@ window.onload = ()=>{
     domcontenedorSesionUsuario = document.querySelector("#contenedorSesionUsuario");
     domDatoSesionUsuario = document.querySelector("#datoSesionUsuario");
     domListaPeliculas = document.querySelector("#listaPeliculas");
+    domDetallePelicula = document.querySelector("#detallePelicula");
     
     cargarDatosPrueba();
     agregarEventoFormularioInicioSesion();
@@ -30,6 +32,7 @@ window.onload = ()=>{
 
     verificarSesion();
     mostrarPeliculas();
+    mostrarPeliculaSeleccionada(aBMCPeliculaController.obtenerPeliculas()[2]);
 }
 
 function verificarSesion(){
@@ -60,9 +63,9 @@ function verDomContenedorFormularioInicioSesion(estado){
 
 function verDomcontenedorSesionUsuario(estado){
     if(estado){
-        domBotonCerrarSesion.classList.remove("ocultar");
+        domcontenedorSesionUsuario.classList.remove("ocultar");
     }else{
-        domBotonCerrarSesion.classList.add("ocultar");
+        domcontenedorSesionUsuario.classList.add("ocultar");
     }
 }
 
@@ -85,36 +88,29 @@ function mostrarPeliculas(){
     let peliculas = aBMCPeliculaController.obtenerPeliculas();
     console.log(peliculas);
     peliculas.forEach((pelicula)=>{
-        let domPelicula = document.createElement("section");
-        domPelicula.className ="pelicula"
-        domListaPeliculas.appendChild(domPelicula);
-        
-        let portadaPelicula = document.createElement("figure");
-        portadaPelicula.className="portadaPelicula";
-        portadaPelicula.innerHTML = /*html*/`
-            <img src="${pelicula.imagen}" alt="">
-            <figcaption>${pelicula.nombre}</figcaption>
-        `;
-        domPelicula.appendChild(portadaPelicula);
+       let figure = document.createElement("figure");
+       figure.className="pelicula";
+       figure.innerHTML = /* html */ `
+        <img src="${pelicula.imagen}" alt="">
+        <figcaption>${pelicula.nombre}</figcaption>
+       `;
+       figure.onclick = ()=>{
+        mostrarPeliculaSeleccionada(pelicula);
+       }
+       domListaPeliculas.appendChild(figure);
 
-        let trailerPelicula = document.createElement("iframe");
-        trailerPelicula.className = "trailerPelicula";
-        trailerPelicula.src = pelicula.getEmbedTriler();
-        domPelicula.appendChild(trailerPelicula);
-
-        let informacionPelicula = document.createElement("section");
-        informacionPelicula.className = "informacionPelicula";
-        informacionPelicula.innerHTML = /* html */`
-                <p class="datosSecundarios">Género ${pelicula.genero}</p>
-                <p class="datosSecundarios">Fecha de estreno ${pelicula.fechaEsteno}</p>
-                <p class="datosSecundarios">Duración ${pelicula.duracion}</p>
-                <p class="datosSecundarios">Precio ${pelicula.precio}$</p>
-                <textarea class="datosSecundarios" readonly>${pelicula.sinopsis}</textarea>
-        `;
-
-        domPelicula.appendChild(informacionPelicula);
     });
 
+}
+
+function mostrarPeliculaSeleccionada(pelicula){
+    domDetallePelicula.querySelector("#trailerPelicula").src = pelicula.getEmbedTriler();
+    domDetallePelicula.style.backgroundImage= `url(${pelicula.imagen})`;
+    domDetallePelicula.querySelector("#fechaLanzamiento").innerHTML="Estreno: "+ pelicula.fechaEsteno;
+    domDetallePelicula.querySelector("#duracion").innerHTML="Duración: "+ pelicula.duracion;
+    domDetallePelicula.querySelector("#genero").innerHTML="Genero: "+  pelicula.genero;
+    domDetallePelicula.querySelector("#sinopsis").innerHTML="Sinopsis: "+  pelicula.sinopsis;
+    domDetallePelicula.querySelector("#precio").innerHTML="$"+  pelicula.precio;
 }
 
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 187.5 187.5" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(.75221 0 0 .75221 -246.96 -388.8)">
+  <path transform="rotate(24.33)" d="m661.41 400.88h10a5 5 0 0 1 5 5v68a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-68a5 5 0 0 1 5 -5" fill="rgba(21,0,0,0)" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <path d="m502 603.36a41 41 0 1 1 -82 0 41 41 0 1 1 82 0z" fill="rgba(147,15,15,0)" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+
+ </g>
+</svg>
