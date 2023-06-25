@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    background-color: var(--colorPrimario);
     
 }
 
@@ -13,13 +14,14 @@
     height: 40px;
     margin: 10px;
     border-radius: 10px;
-    border: 1px solid var(--colorPrimario);
+    border: 1px solid var(--colorSecundario);
     padding: 10px;
     text-align: center;
     background-color: var(--colorbaseClaro);
     color: var(--colorBaseOscuro);
     font-weight: 500;
     transition: all .3s;
+    font-weight: bold;
 }
 
 #formularioInicioSesion .input:hover{

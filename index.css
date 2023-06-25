@@ -30,7 +30,7 @@ body {
         width: 100%;
         z-index: 10;
         height: 100px;
-        background-color: var(--colorPrimario);
+        background-color: var(--colorTerciario);
         flex-direction: column;
         flex-wrap: wrap;
         min-width: 971px;
