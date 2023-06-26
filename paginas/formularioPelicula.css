@@ -7,7 +7,7 @@
     text-align: center;
     padding: 50px;
     margin: 20px;
-    background: linear-gradient(75deg,var(--colorSecundario),var(--colorTerciario));
+    background: linear-gradient(75deg,var(--colorPrimario),var(--colorTerciario));
     color: var(--colorbaseClaro) ;
     font-family: var(--textoNormal);
     transform: scale(.85) translateY(-100px);

@@ -1,4 +1,5 @@
 import ABMCPeliculaController from "./Controller/ABMCPeliculaController.js";
+import CarritoController from "./Controller/CarritoController.js";
 import SesionController from "./Controller/SesionController.js";
 import DatosSesion from "./Model/DatosSesion.js";
 import Pelicula from "./Model/Pelicula.js";
@@ -7,6 +8,7 @@ import cargarDatosPrueba from "./Model/datosPrueba.js"
 
 let aBMCPeliculaController = new ABMCPeliculaController();
 let sesionController = new SesionController();
+let carritoController = new CarritoController();
 let domFormularioInicioSesion;
 let domBotonCerrarSesion;
 let domContenedorFormularioInicioSesion;
@@ -14,7 +16,10 @@ let domcontenedorSesionUsuario;
 let domDatoSesionUsuario;
 let domListaPeliculas;
 let domDetallePelicula;
-
+let domEntradaFiltroPelicula;
+let domCantidadElementosCarrito;
+let domListaItemCarrito;
+let domCabezeraListaItemCarrito;
 
 
 window.onload = ()=>{
@@ -25,14 +30,69 @@ window.onload = ()=>{
     domDatoSesionUsuario = document.querySelector("#datoSesionUsuario");
     domListaPeliculas = document.querySelector("#listaPeliculas");
     domDetallePelicula = document.querySelector("#detallePelicula");
-    
+    domEntradaFiltroPelicula = document.querySelector("#entradaFiltroPelicula");
+    domCantidadElementosCarrito = document.querySelector("#cantidadElementosCarrito");
+    domListaItemCarrito = document.querySelector("#listaItemCarrito");
+    domCabezeraListaItemCarrito = document.querySelector("#cabezeraListaItemCarrito");
+
     cargarDatosPrueba();
     agregarEventoFormularioInicioSesion();
     agregarEventoBotonCerrarSesion();
+    agregarEventoFiltrarPelicula();
 
     verificarSesion();
     mostrarPeliculas();
+    mostrarCarrito();
     mostrarPeliculaSeleccionada(aBMCPeliculaController.obtenerPeliculas()[2]);
+}
+
+function mostrarCarrito(){
+    let carrito  = carritoController.obtener();
+    domCantidadElementosCarrito.innerHTML=carrito.length;
+    domListaItemCarrito.innerHTML="";
+    domCabezeraListaItemCarrito.innerHTML = "";
+    if(carrito.length > 0){
+        domCabezeraListaItemCarrito.innerHTML = /* html */`
+            <tr>
+                <td>Nombre</td>
+                <td>Precio</td>     
+            </tr>
+        `;
+    }
+    carrito.forEach((itemCarriro,inidice)=>{
+
+        let tr = document.createElement("tr");
+        domListaItemCarrito.appendChild(tr);
+
+        tr.innerHTML += /* html */`
+                <td>${itemCarriro.nombrePelicula}</td>
+                <td>$${itemCarriro.precio}</td>
+        `;
+
+       
+        let tdRemove = document.createElement("td");
+        let botonRemove = document.createElement("img");
+        tr.appendChild(tdRemove);
+        botonRemove.src = "./imagenes/remover.svg";
+        tdRemove.appendChild(botonRemove);
+        botonRemove.onclick = ()=>{
+            quitarDelCarrito(inidice);
+        }
+
+        
+    });
+}
+
+function agregarAlcarrito(pelicula){
+   
+    carritoController.agregaPelicula(pelicula);
+    mostrarCarrito();
+}
+
+function quitarDelCarrito(indice){
+    console.log(indice);
+    carritoController.quitarPelicula(indice);
+    mostrarCarrito();
 }
 
 function verificarSesion(){
@@ -75,6 +135,11 @@ function agregarEventoBotonCerrarSesion(){
     }
 }
 
+function agregarEventoFiltrarPelicula(){
+    domEntradaFiltroPelicula.onkeyup = ()=>{
+        mostrarPeliculas(domEntradaFiltroPelicula.value);
+    }
+}
 
 
 function agregarEventoFormularioInicioSesion(){
@@ -84,10 +149,18 @@ function agregarEventoFormularioInicioSesion(){
     }
 }
 
-function mostrarPeliculas(){
-    let peliculas = aBMCPeliculaController.obtenerPeliculas();
-    console.log(peliculas);
-    peliculas.forEach((pelicula)=>{
+
+
+
+function mostrarPeliculas(nombrePelicula=null){
+    let peliculasMostrar;
+    if(nombrePelicula==null){
+        peliculasMostrar = aBMCPeliculaController.obtenerPeliculas();
+    }else{
+        peliculasMostrar= aBMCPeliculaController.obtenerPeliculasFiltrado(nombrePelicula);
+    }
+    domListaPeliculas.innerHTML="";
+    peliculasMostrar.forEach((pelicula)=>{
        let figure = document.createElement("figure");
        figure.className="pelicula";
        figure.innerHTML = /* html */ `
@@ -111,6 +184,9 @@ function mostrarPeliculaSeleccionada(pelicula){
     domDetallePelicula.querySelector("#genero").innerHTML="Genero: "+  pelicula.genero;
     domDetallePelicula.querySelector("#sinopsis").innerHTML="Sinopsis: "+  pelicula.sinopsis;
     domDetallePelicula.querySelector("#precio").innerHTML="$"+  pelicula.precio;
+    domDetallePelicula.querySelector("#agregarCarrito").onclick = ()=>{
+        agregarAlcarrito(pelicula);
+    }
 }
 
 

@@ -22,6 +22,10 @@ import PeliculasDAO from "../Model/PeliculasDAO.js";
     modificarPelicula(peliculaProcesada,codigo){
         return this.peliculasDAO.modificarPelicula(peliculaProcesada,codigo);
     }
+
+    obtenerPeliculasFiltrado(nombre){
+        return this.peliculasDAO.obtenerPeliculasFiltrado(nombre);
+    }
 }
 
 export default ABMCPeliculaController;

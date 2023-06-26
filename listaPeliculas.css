@@ -34,7 +34,9 @@ main #listaPeliculas{
             text-align: center;
             overflow: auto;
             color: aliceblue;
+            font-family: var(--textoNormal);
         }
+
 
 
         #listaPeliculas .pelicula figcaption::-webkit-scrollbar{

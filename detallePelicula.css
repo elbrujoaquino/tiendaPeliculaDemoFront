@@ -23,6 +23,8 @@ main #detallePelicula{
             color: aliceblue;
             text-align: center;
             padding: 10px;
+            font-family: var(--fuenteTitulo);
+
         }
 
 
@@ -36,6 +38,7 @@ main #detallePelicula{
         transform: rotate(-20deg);
         border: none;
         color: #ffffff;
+        font-family: var(--textoNormal);
         background-color: var(--colorTerciario);
         border-radius: 50%;
         transition: all .3s;
@@ -67,6 +70,7 @@ main #detallePelicula{
         pointer-events: none;
         background: rgba(0, 0, 0, 0.874);
         color: rgb(255, 255, 255);
+        font-family: var(--textoNormal);
         text-align: justify;
         padding-left: 100px;
         padding-right: 100px;

@@ -1,0 +1,62 @@
+#seccionCarrito{
+    
+    overflow: hidden;
+    transition:height 0s ;
+}
+
+#seccionCarrito:hover{
+    height: 400px;
+    width: 400px;
+    transition:height .3s ;
+}
+
+
+#seccionCarrito #cantidadElementosCarrito{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--colorbaseClaro);
+    border-radius: 100%;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#seccionCarrito table{
+    background-color: var(--colorbaseClaro);
+    border-collapse: collapse;
+    display: inline-block;
+    overflow: auto;
+    max-height: 288px;
+    
+
+
+}
+
+#seccionCarrito table::-webkit-scrollbar{
+    background-color: rgb(255, 255, 255);
+    background-color: var(--colorbaseClaro);
+}
+
+#seccionCarrito table::-webkit-scrollbar-thumb{
+    background-color: var(--colorPrimario);
+}
+
+
+
+#seccionCarrito table td{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    font-family: var(--textoNormal);
+}
+
+#seccionCarrito table td img{
+    position: static;
+    width: 50px;
+    height: 50px;
+}

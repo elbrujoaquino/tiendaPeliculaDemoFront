@@ -34,6 +34,7 @@ body {
         flex-direction: column;
         flex-wrap: wrap;
         min-width: 971px;
+        font-family: var(--textoNormal);
        
 
     }
@@ -42,12 +43,26 @@ body {
             position: absolute;
             float: right;
             right: 40px;
-            top: calc(100%/2 - 60px/2);
+            width: 150px;
+            height: 100px;
+            top: calc(100%/2 - 100px/2);
+            padding-top: 20px;
 
         }
 
+        header #seccionCarrito table{
+            position: absolute;
+            z-index: 20;
+            top: 100px;
+            right: 0;
+    
+        }
+
             header #seccionCarrito img {
+                position: absolute;
+                right: 20px;
                 height: 60px;
+        
             }
 
         header .contenedorBuscar{
@@ -78,6 +93,7 @@ body {
                 outline: none;
                 color: var(--colorbaseClaro);
                 font-size: 1.3em;
+                font-family: var(--textoNormal);
             }
 
             header .contenedorBuscar input::placeholder{

@@ -16,7 +16,7 @@ body{
     width: 99vw;
     height: 100vh;
     padding: 20px;
-    background-color: var(--colorBaseOscuro);
+    background-color: var(--colorTerciario);
 }
 
 main{
@@ -37,7 +37,7 @@ main{
 
 
 #ListaPeliculas > .pelicula{
-    background-color: aqua;
+    
     padding: 20px;
 }
 

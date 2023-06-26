@@ -91,6 +91,10 @@ class PeliculasDAO{
         return indiciePelicula != -1;
     }
 
+    obtenerPeliculasFiltrado(nombre){
+        return this.obtenerPeliculas().filter(pelicula => pelicula.nombre.startsWith(nombre));
+    }
+
 
 }
 
