@@ -23,6 +23,10 @@ main #listaPeliculas{
         transform: scale(1.3);
     }
 
+    #listaPeliculas .pelicula:active{
+        transform: scale(1);
+    }
+
 
         #listaPeliculas .pelicula img{
             height: 80%;

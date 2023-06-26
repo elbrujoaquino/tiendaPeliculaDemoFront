@@ -15,8 +15,8 @@
 </head>
 <body>
     <header>
-        <section id="seccionCarrito">
-            <img src="imagenes/logo.png">
+        <div id="seccionCarrito" class="carritoDesactivado" tabindex="0">
+            <img src="imagenes/logo.png" class="logo">
             <section id="cantidadElementosCarrito"></section>
             <table>
                 <thead id="cabezeraListaItemCarrito">
@@ -25,10 +25,14 @@
 
                 </tbody>
             </table>
+            <button id="comprarPeliculas">
+                <img src="imagenes/carrito.svg">
+                <p id="precioTotal">200</p>
+            </button>
 
-        </section>
-        <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
-            <img src=".//imagenes/usuario.svg">
+        </div>
+        <div class="contenedorFormularioInicioSesionDesactivado" id="contenedorFormularioInicioSesion">
+            <img src=".//imagenes/usuario.svg" class="logoInicioSesion">
             <form id="formularioInicioSesion">
                 <input name="usuario" type="text" placeholder="Usuario" class="input" value="Juan">
                 <input name="contrasenia" type="password" placeholder="Contraseña" class="input" value="Juan1234">

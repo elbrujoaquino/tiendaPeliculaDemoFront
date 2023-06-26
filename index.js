@@ -20,6 +20,11 @@ let domEntradaFiltroPelicula;
 let domCantidadElementosCarrito;
 let domListaItemCarrito;
 let domCabezeraListaItemCarrito;
+let domBotonAgregarCarrito;
+let domPrecioTotal;
+
+//DOM con animaciones
+let domSecionCarrito;
 
 
 window.onload = ()=>{
@@ -34,16 +39,21 @@ window.onload = ()=>{
     domCantidadElementosCarrito = document.querySelector("#cantidadElementosCarrito");
     domListaItemCarrito = document.querySelector("#listaItemCarrito");
     domCabezeraListaItemCarrito = document.querySelector("#cabezeraListaItemCarrito");
+    domSecionCarrito = document.querySelector("#seccionCarrito");
+    domBotonAgregarCarrito = document.querySelector("#agregarCarrito");
+    domPrecioTotal = document.querySelector("#precioTotal");
 
     cargarDatosPrueba();
     agregarEventoFormularioInicioSesion();
     agregarEventoBotonCerrarSesion();
     agregarEventoFiltrarPelicula();
+    agregarEventosActivacion();
 
     verificarSesion();
     mostrarPeliculas();
     mostrarCarrito();
     mostrarPeliculaSeleccionada(aBMCPeliculaController.obtenerPeliculas()[2]);
+
 }
 
 function mostrarCarrito(){
@@ -51,6 +61,7 @@ function mostrarCarrito(){
     domCantidadElementosCarrito.innerHTML=carrito.length;
     domListaItemCarrito.innerHTML="";
     domCabezeraListaItemCarrito.innerHTML = "";
+    
     if(carrito.length > 0){
         domCabezeraListaItemCarrito.innerHTML = /* html */`
             <tr>
@@ -59,8 +70,10 @@ function mostrarCarrito(){
             </tr>
         `;
     }
-    carrito.forEach((itemCarriro,inidice)=>{
 
+    let total = 0;
+    carrito.forEach((itemCarriro,inidice)=>{
+        total += parseInt(itemCarriro.precio);
         let tr = document.createElement("tr");
         domListaItemCarrito.appendChild(tr);
 
@@ -81,6 +94,8 @@ function mostrarCarrito(){
 
         
     });
+    console.log(domPrecioTotal);
+    domPrecioTotal.innerHTML="$"+total;
 }
 
 function agregarAlcarrito(pelicula){
@@ -110,6 +125,7 @@ function verificarSesion(){
         verDomContenedorFormularioInicioSesion(true);
     }
 }
+
 
 
 
@@ -231,4 +247,98 @@ function cerrarSesion(){
         verDomcontenedorSesionUsuario(false);
         verDomContenedorFormularioInicioSesion(true);
     }
+}
+
+
+
+function agregarEventosActivacion(){
+    eventosActivacionCarrito();
+    eventosActivacionAgregarElementoCarrito();
+    eventosActivacionFormularioInicioSesion();
+}
+
+function eventosActivacionCarrito(){
+
+
+    domSecionCarrito.onmouseenter =()=>{
+        domSecionCarrito.classList.remove("desactivandoCarrito");
+        domSecionCarrito.classList.add("activandoCarrito");
+        domSecionCarrito.onanimationend = ()=>{
+            domSecionCarrito.classList.remove("carritoDesactivado");
+            domSecionCarrito.classList.add("carritoActivado");
+        }
+
+        domSecionCarrito.querySelector("img").classList.add("activandoCarritoImg");
+        domSecionCarrito.querySelector("img").classList.remove("desactivandoCarritoImg");
+         
+    }
+
+
+    domSecionCarrito.onmouseleave =()=>{
+        domSecionCarrito.classList.remove("activandoCarrito");
+        domSecionCarrito.classList.add("desactivandoCarrito");
+        domSecionCarrito.onanimationend = ()=>{
+            domSecionCarrito.classList.remove("carritoActivado");
+            domSecionCarrito.classList.add("carritoDesactivado");
+        }
+        domSecionCarrito.querySelector("img").classList.add("desactivandoCarritoImg");
+        domSecionCarrito.querySelector("img").classList.remove("activandoCarritoImg");
+    }
+    
+
+
+
+ 
+    
+}
+
+function eventosActivacionAgregarElementoCarrito(){
+    console.log(domBotonAgregarCarrito);
+    domBotonAgregarCarrito.addEventListener("click",()=>{
+        domCantidadElementosCarrito.classList.add("agregandoElementoCarrito");
+        console.log(domCantidadElementosCarrito);
+    });
+    domCantidadElementosCarrito.onanimationend = ()=>{
+        domCantidadElementosCarrito.classList.remove("agregandoElementoCarrito");
+        console.log(domCantidadElementosCarrito);
+    }
+}
+
+function eventosActivacionFormularioInicioSesion(){
+    console.log(domcontenedorSesionUsuario)
+   
+    domContenedorFormularioInicioSesion.onmouseenter =()=>{
+        
+        domContenedorFormularioInicioSesion.classList.remove("contenedorFormularioInicioSesionDesactivando");
+        domContenedorFormularioInicioSesion.classList.add("contenedorFormularioInicioSesionActivando");
+        domContenedorFormularioInicioSesion.onanimationend = ()=>{
+            domContenedorFormularioInicioSesion.classList.remove("contenedorFormularioInicioSesionDesactivado");
+            domContenedorFormularioInicioSesion.classList.add("contenedorFormularioInicioSesionActivado");
+        }
+        /*
+        domSecionCarrito.querySelector("img").classList.add("activandoCarritoImg");
+        domSecionCarrito.querySelector("img").classList.remove("desactivandoCarritoImg");
+        */
+         
+    }
+
+
+    domContenedorFormularioInicioSesion.onmouseleave =()=>{
+        domContenedorFormularioInicioSesion.classList.remove("contenedorFormularioInicioSesionActivando");
+        domContenedorFormularioInicioSesion.classList.add("contenedorFormularioInicioSesionDesactivando");
+        domContenedorFormularioInicioSesion.onanimationend = ()=>{
+            domContenedorFormularioInicioSesion.classList.remove("contenedorFormularioInicioSesionActivado");
+            domContenedorFormularioInicioSesion.classList.add("contenedorFormularioInicioSesionDesactivado");
+        }
+        /*
+        domSecionCarrito.querySelector("img").classList.add("desactivandoCarritoImg");
+        domSecionCarrito.querySelector("img").classList.remove("activandoCarritoImg");
+        */
+    }
+    
+
+
+
+ 
+    
 }

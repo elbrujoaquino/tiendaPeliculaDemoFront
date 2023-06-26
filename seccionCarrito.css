@@ -1,14 +1,124 @@
-#seccionCarrito{
-    
+.carritoDesactivado{
+    position: absolute;
+    float: right;
+    right: 40px;
+    width: 150px;
+    height: 100px;
+    top: calc(100%/2 - 100px/2);
+    padding-top: 20px;
     overflow: hidden;
-    transition:height 0s ;
+
 }
 
-#seccionCarrito:hover{
-    height: 400px;
-    width: 400px;
-    transition:height .3s ;
+.carritoDesactivado .logo {
+    position: absolute;
+    right: 20px;
+    height: 60px;
+    transition: all .1s;
+
 }
+
+.carritoActivado{
+    position: absolute;
+    float: right;
+    right: 40px;
+    width: 400px;
+    height: 460px;
+    top: calc(100%/2 - 100px/2);
+    padding-top: 20px;
+   
+   
+}
+
+.carritoActivado .logo {
+    position: absolute;
+    right: 20px;
+    height: 80px;
+    transition: all .1s;
+
+}
+
+
+@keyframes activandoCarrito{
+    0%{
+        width: 400px;
+        height: 100px;
+        overflow: hidden;
+    }
+    100%{
+        height: 460px;
+        width: 400px;
+        overflow: hidden;
+    }
+}
+.activandoCarrito{
+    animation-duration: .5s;
+    animation-name: activandoCarrito;
+}
+
+    @keyframes activandoCarritoImg {
+        0%{
+            height: 60px;
+            
+
+        }
+        100%{
+            height: 80px;
+        }
+    }
+
+    .activandoCarritoImg{
+        animation-duration: .5s;
+        animation-name: activandoCarritoImg;
+    }
+
+
+
+
+@keyframes desactivandoCarrito{
+    0%{
+        height: 460px;
+        width: 400px;
+        overflow: hidden;
+    }
+    100%{
+        width: 400px;
+        height: 100px;
+        overflow: hidden;
+    }
+}
+.desactivandoCarrito{
+    animation-duration: .3s;
+    animation-name: desactivandoCarrito;
+    
+}
+    @keyframes desactivandoCarritoImg {
+        0%{
+            height: 80px;
+        }
+        100%{
+            height: 60px;
+        }
+    }
+
+    .desactivandoCarritoImg{
+        animation-duration: .3s;
+        animation-name: desactivandoCarritoImg;
+    }
+
+
+
+
+header #seccionCarrito table{
+    position: absolute;
+    z-index: 20;
+    top: 100px;
+    right: 0;
+
+}
+
+
+
 
 
 #seccionCarrito #cantidadElementosCarrito{
@@ -23,6 +133,25 @@
     line-height: 40px;
     text-align: center;
     font-weight: bold;
+
+}
+
+@keyframes agregandoElementoCarrito {
+    0%{
+        transform: rotateY(0deg)
+    }
+    50%{
+        transform: rotateY(90deg)
+    }
+
+    100%{
+        transform: rotateY(0deg)
+    }
+}
+
+.agregandoElementoCarrito{
+    animation-name: agregandoElementoCarrito;
+    animation-duration: .4s;
 }
 
 
@@ -31,32 +160,91 @@
     border-collapse: collapse;
     display: inline-block;
     overflow: auto;
-    max-height: 288px;
+    height: 288px;
+    width: 400px;
     
-
-
 }
 
-#seccionCarrito table::-webkit-scrollbar{
-    background-color: rgb(255, 255, 255);
-    background-color: var(--colorbaseClaro);
+
+
+
+    #seccionCarrito table::-webkit-scrollbar{
+        background-color: var(--colorbaseClaro);
+    }
+
+    #seccionCarrito table::-webkit-scrollbar-thumb{
+        background-color: var(--colorPrimario);
+    }
+
+
+
+
+    #seccionCarrito table td,  #seccionCarrito table th{
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+        font-family: var(--textoNormal);
+        width: 80%;
+    }
+
+    #seccionCarrito table td img{
+        position: static;
+        width: 50px;
+        height: 50px;
+        transition: all .3s;
+    }
+
+    #seccionCarrito table td img:hover{
+        transform: scale(1.2);
+    }
+    #seccionCarrito table td img:active{
+        transform: scale(1);
 }
 
-#seccionCarrito table::-webkit-scrollbar-thumb{
+
+#seccionCarrito #comprarPeliculas{
     background-color: var(--colorPrimario);
-}
-
-
-
-#seccionCarrito table td{
-    border: 1px solid black;
-    padding: 5px;
-    text-align: center;
-    font-family: var(--textoNormal);
-}
-
-#seccionCarrito table td img{
-    position: static;
-    width: 50px;
+    display: inline-block;
+    width: 400px;
     height: 50px;
+    overflow: hidden;
+    position: absolute;
+    top: 388px;
+    z-index: 70;
+    transition: all .3s;
+
+    border: none;
+
+}
+
+#seccionCarrito #comprarPeliculas:hover{
+    transform: scale(1.1) translateY(2px);
+}
+
+#seccionCarrito #comprarPeliculas:active{
+    transform: scale(1) translateY(0px);
+}
+
+
+#seccionCarrito #comprarPeliculas img{
+    position: relative;
+    height: 100%;
+     float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    filter: invert(1);
+
+}
+
+
+#seccionCarrito #comprarPeliculas p{
+    position: relative;
+    height: 100%;
+    width: 80%;
+    float: left;
+    line-height: 50px;
+    text-align: left;
+    font-family: var(--textoNormal);
+    font-weight: bold;
+    font-size: 1.2em;
 }
